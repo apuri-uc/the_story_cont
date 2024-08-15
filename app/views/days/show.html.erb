@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Day #<%= @the_day.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/days">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_day/<%= @the_day.id %>">
+          Delete day
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Week
+      </dt>
+      <dd>
+        <%= @the_day.week_id %>
+      </dd>
+
+      <dt>
+        Goal
+      </dt>
+      <dd>
+        <%= @the_day.goal_id %>
+      </dd>
+
+      <dt>
+        Goal1
+      </dt>
+      <dd>
+        <%= @the_day.goal1 %>
+      </dd>
+
+      <dt>
+        Goal2
+      </dt>
+      <dd>
+        <%= @the_day.goal2 %>
+      </dd>
+
+      <dt>
+        Goal3
+      </dt>
+      <dd>
+        <%= @the_day.goal3 %>
+      </dd>
+
+      <dt>
+        Entries
+      </dt>
+      <dd>
+        <%= @the_day.entries %>
+      </dd>
+
+      <dt>
+        Day
+      </dt>
+      <dd>
+        <%= @the_day.day %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_day.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_day.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit day
+    </h2>
+
+    <form action="/modify_day/<%= @the_day.id %>"  method="post" >
+      <div>
+        <label for="week_id_box">
+          Week
+        </label>
+
+        <input type="text" id="week_id_box" name="query_week_id" value="<%= @the_day.week_id %>">
+      </div>
+
+      <div>
+        <label for="goal_id_box">
+          Goal
+        </label>
+
+        <input type="text" id="goal_id_box" name="query_goal_id" value="<%= @the_day.goal_id %>">
+      </div>
+
+      <div>
+        <label for="goal1_box">
+          Goal1
+        </label>
+
+        <input type="text" id="goal1_box" name="query_goal1" value="<%= @the_day.goal1 %>">
+      </div>
+
+      <div>
+        <label for="goal2_box">
+          Goal2
+        </label>
+
+        <input type="text" id="goal2_box" name="query_goal2" value="<%= @the_day.goal2 %>">
+      </div>
+
+      <div>
+        <label for="goal3_box">
+          Goal3
+        </label>
+
+        <input type="text" id="goal3_box" name="query_goal3" value="<%= @the_day.goal3 %>">
+      </div>
+
+      <div>
+        <label for="entries_box">
+          Entries
+        </label>
+
+        <input type="text" id="entries_box" name="query_entries" value="<%= @the_day.entries %>">
+      </div>
+
+      <div>
+        <label for="day_box">
+          Day
+        </label>
+
+        <input type="text" id="day_box" name="query_day" value="<%= @the_day.day %>">
+      </div>
+
+      <button>
+        Update day
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

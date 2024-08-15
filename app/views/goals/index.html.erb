@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all goals
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new goal
+    </h2>
+
+    <form action="/insert_goal" method="post">
+      <div>
+        <label for="goal_box">
+          Goal
+        </label>
+
+        <input type="text" id="goal_box" name="query_goal">
+      </div>
+
+      <button>
+        Create goal
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Goal
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_goals.each do |a_goal| %>
+      <tr>
+        <td>
+          <%= a_goal.id %>
+        </td>
+
+        <td>
+          <%= a_goal.goal %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_goal.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_goal.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/goals/<%= a_goal.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

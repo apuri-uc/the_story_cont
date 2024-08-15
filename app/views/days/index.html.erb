@@ -1,0 +1,182 @@
+<div>
+  <div>
+    <h1>
+      List of all days
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new day
+    </h2>
+
+    <form action="/insert_day" method="post">
+      <div>
+        <label for="week_id_box">
+          Week
+        </label>
+
+        <input type="text" id="week_id_box" name="query_week_id">
+      </div>
+
+      <div>
+        <label for="goal_id_box">
+          Goal
+        </label>
+
+        <input type="text" id="goal_id_box" name="query_goal_id">
+      </div>
+
+      <div>
+        <label for="goal1_box">
+          Goal1
+        </label>
+
+        <input type="text" id="goal1_box" name="query_goal1">
+      </div>
+
+      <div>
+        <label for="goal2_box">
+          Goal2
+        </label>
+
+        <input type="text" id="goal2_box" name="query_goal2">
+      </div>
+
+      <div>
+        <label for="goal3_box">
+          Goal3
+        </label>
+
+        <input type="text" id="goal3_box" name="query_goal3">
+      </div>
+
+      <div>
+        <label for="entries_box">
+          Entries
+        </label>
+
+        <input type="text" id="entries_box" name="query_entries">
+      </div>
+
+      <div>
+        <label for="day_box">
+          Day
+        </label>
+
+        <input type="text" id="day_box" name="query_day">
+      </div>
+
+      <button>
+        Create day
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Week
+        </th>
+
+        <th>
+          Goal
+        </th>
+
+        <th>
+          Goal1
+        </th>
+
+        <th>
+          Goal2
+        </th>
+
+        <th>
+          Goal3
+        </th>
+
+        <th>
+          Entries
+        </th>
+
+        <th>
+          Day
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_days.each do |a_day| %>
+      <tr>
+        <td>
+          <%= a_day.id %>
+        </td>
+
+        <td>
+          <%= a_day.week_id %>
+        </td>
+
+        <td>
+          <%= a_day.goal_id %>
+        </td>
+
+        <td>
+          <%= a_day.goal1 %>
+        </td>
+
+        <td>
+          <%= a_day.goal2 %>
+        </td>
+
+        <td>
+          <%= a_day.goal3 %>
+        </td>
+
+        <td>
+          <%= a_day.entries %>
+        </td>
+
+        <td>
+          <%= a_day.day %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_day.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_day.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/days/<%= a_day.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

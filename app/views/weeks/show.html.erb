@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Week #<%= @the_week.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/weeks">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_week/<%= @the_week.id %>">
+          Delete week
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_week.user_id %>
+      </dd>
+
+      <dt>
+        Week
+      </dt>
+      <dd>
+        <%= @the_week.week %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_week.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_week.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit week
+    </h2>
+
+    <form action="/modify_week/<%= @the_week.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_week.user_id %>">
+      </div>
+
+      <div>
+        <label for="week_box">
+          Week
+        </label>
+
+        <input type="text" id="week_box" name="query_week" value="<%= @the_week.week %>">
+      </div>
+
+      <button>
+        Update week
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

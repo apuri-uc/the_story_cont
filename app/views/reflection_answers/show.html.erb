@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Reflection answer #<%= @the_reflection_answer.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/reflection_answers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_reflection_answer/<%= @the_reflection_answer.id %>">
+          Delete reflection answer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Reflection question
+      </dt>
+      <dd>
+        <%= @the_reflection_answer.reflection_question_id %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_reflection_answer.user_id %>
+      </dd>
+
+      <dt>
+        Week
+      </dt>
+      <dd>
+        <%= @the_reflection_answer.week_id %>
+      </dd>
+
+      <dt>
+        Answer
+      </dt>
+      <dd>
+        <%= @the_reflection_answer.answer %>
+      </dd>
+
+      <dt>
+        Question
+      </dt>
+      <dd>
+        <%= @the_reflection_answer.question %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_reflection_answer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_reflection_answer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit reflection answer
+    </h2>
+
+    <form action="/modify_reflection_answer/<%= @the_reflection_answer.id %>"  method="post" >
+      <div>
+        <label for="reflection_question_id_box">
+          Reflection question
+        </label>
+
+        <input type="text" id="reflection_question_id_box" name="query_reflection_question_id" value="<%= @the_reflection_answer.reflection_question_id %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_reflection_answer.user_id %>">
+      </div>
+
+      <div>
+        <label for="week_id_box">
+          Week
+        </label>
+
+        <input type="text" id="week_id_box" name="query_week_id" value="<%= @the_reflection_answer.week_id %>">
+      </div>
+
+      <div>
+        <label for="answer_box">
+          Answer
+        </label>
+
+        <input type="text" id="answer_box" name="query_answer" value="<%= @the_reflection_answer.answer %>">
+      </div>
+
+      <div>
+        <label for="question_box">
+          Question
+        </label>
+
+        <input type="text" id="question_box" name="query_question" value="<%= @the_reflection_answer.question %>">
+      </div>
+
+      <button>
+        Update reflection answer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

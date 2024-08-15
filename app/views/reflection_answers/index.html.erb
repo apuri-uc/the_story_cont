@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all reflection answers
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new reflection answer
+    </h2>
+
+    <form action="/insert_reflection_answer" method="post">
+      <div>
+        <label for="reflection_question_id_box">
+          Reflection question
+        </label>
+
+        <input type="text" id="reflection_question_id_box" name="query_reflection_question_id">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="week_id_box">
+          Week
+        </label>
+
+        <input type="text" id="week_id_box" name="query_week_id">
+      </div>
+
+      <div>
+        <label for="answer_box">
+          Answer
+        </label>
+
+        <input type="text" id="answer_box" name="query_answer">
+      </div>
+
+      <div>
+        <label for="question_box">
+          Question
+        </label>
+
+        <input type="text" id="question_box" name="query_question">
+      </div>
+
+      <button>
+        Create reflection answer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Reflection question
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Week
+        </th>
+
+        <th>
+          Answer
+        </th>
+
+        <th>
+          Question
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_reflection_answers.each do |a_reflection_answer| %>
+      <tr>
+        <td>
+          <%= a_reflection_answer.id %>
+        </td>
+
+        <td>
+          <%= a_reflection_answer.reflection_question_id %>
+        </td>
+
+        <td>
+          <%= a_reflection_answer.user_id %>
+        </td>
+
+        <td>
+          <%= a_reflection_answer.week_id %>
+        </td>
+
+        <td>
+          <%= a_reflection_answer.answer %>
+        </td>
+
+        <td>
+          <%= a_reflection_answer.question %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_reflection_answer.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_reflection_answer.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/reflection_answers/<%= a_reflection_answer.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
